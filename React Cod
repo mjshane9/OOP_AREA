@@ -1,0 +1,47 @@
+// import Header from './components/common/Header';
+// import List from './components/list/List';
+// import './index.css';
+
+
+// var Component=function(props){
+//     // var style={
+//     //   background:props.backgroundcolor
+//     // }
+//     return(
+//         <div style={{background:props.backgroundcolor}}>
+//         <h1>{props.greetings}</h1>
+
+//         </div>
+//     );
+// };
+
+
+var Component=createClass({
+    getInitialState:function(){
+       return {
+           backgroundcolor:'pink'
+        };
+    }, 
+
+    HandelButtonClick:function(){
+        this.setState(
+            function(prevState){
+                return{
+                    backgroundcolor:(prevState.backgroundcolor==='pink') ? 'lightblue':'pink'
+                };
+            });
+    },
+
+    render: function(){
+        return(
+            <div>
+            <div style={{background:this.state.backgroundcolor}}>
+            <h1>{this.props.greetings}</h1>
+            </div>
+            <button onClick={this.HandelButtonClick}>Clickme</button>  
+            </div>
+        );
+    }
+});
+
+
